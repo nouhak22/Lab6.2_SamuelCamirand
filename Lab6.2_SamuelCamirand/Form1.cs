@@ -121,23 +121,42 @@ namespace Lab6._2_SamuelCamirand
 
         private void btnChkEmail_Click(object sender, EventArgs e)
         {
-            //check email button
+            if (!Regex.IsMatch(textBox1.Text, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"))
+            {
+                MessageBox.Show("Invalid Email!");
+            }
+            else
+            {
+                MessageBox.Show("Valid Email!");
+            }
         }
 
         private void btnDelExSpaces_Click(object sender, EventArgs e)
         {
             //delete extra spaces button
+            textBox1.Text = Regex.Replace(textBox1.Text, @"\s+", " ");
         }
 
         private void btnValPostalCode_Click(object sender, EventArgs e)
         {
             //validate postal code button
+            if (!Regex.IsMatch(txtPC.Text, @"^([A-Z][0-9][A-Z])([0-9][A-Z][0-9])$|^([A-Z][\d][A-Z])([\s\-])?([\d][A-Z][\d])$"))
+            {
+                MessageBox.Show("Invalid Postal Code!");
+            }
+            else
+            {
+                MessageBox.Show("Valid Postal Code!");
+            }
         }
 
         private void btnDelLetters_Click(object sender, EventArgs e)
         {
             // delete letters a,b,c,d button
+            textBox1.Text = textBox1.Text.Replace("a", "").Replace("b", "").Replace("c", "").Replace("d", "");
         }
+
+    }
 
         private void btnCreateArray_Click(object sender, EventArgs e)
         {
